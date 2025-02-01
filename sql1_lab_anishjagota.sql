@@ -44,7 +44,7 @@ WHERE Enrollments.StudentID IS NULL;
 -- 10. List courses and show the number of students enrolled in each course.
 
 SELECT Courses.CourseName, COUNT(Enrollments.StudentID) AS TotalStudents
-FROM Courses
+FROM Enrollments
 INNER JOIN Courses ON Enrollments.CourseID = Courses.CourseID
 GROUP BY Courses.CourseName;
 
