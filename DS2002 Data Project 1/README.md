@@ -5,17 +5,6 @@
 This project implements a full ETL (Extract, Transform, Load) pipeline to analyze the relationship between **cryptocurrency market movements** and both **market sentiment** (via the Fear & Greed Index) and **macroeconomic indicators** (Gold, Oil, S&P 500 ETFs).  
 It involves ingesting multi-source time series data, transforming it to a common structure, storing results in multiple formats, and analyzing correlations across different financial metrics.
 
-## Folder Structure
-DS2002 Data Project 1/
-├── code.ipynb               # Main Jupyter Notebook
-├── reflection.pdf           # Final reflection write-up
-├── README.md                # This file
-├── data/                    # Raw local CSVs
-│   ├── ETHUSDT.csv
-│   ├── DOGEUSDT.csv
-│   └── SOLUSDT.csv
-
-
 ---
 
 ## ETL Pipeline Breakdown
@@ -24,7 +13,7 @@ DS2002 Data Project 1/
 - **Sentiment API:**  
   - Fetched daily Fear & Greed Index using [alternative.me](https://alternative.me/crypto/fear-and-greed-index/) API (JSON).
 - **Macroeconomic API:**  
-  - Retrieved Gold (GLD), Oil (USO), and S&P 500 (SPY) ETF prices from Yahoo Finance API (JSON).
+  - Retrieved Gold (GLD), Oil (USO), and S&P 500 (SPY) ETF prices from Yahoo Finance API(https://yfapi.net/v8/finance/chart/%7Bsymbol%7D) (JSON).
 - **Local CSVs:**  
   - Historical minute level crypto data for ETH, DOGE, SOL (from [Kaggle] (https://www.kaggle.com/datasets/kaanxtr/btc-price-1m)).
 
