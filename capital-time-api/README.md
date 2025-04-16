@@ -71,7 +71,9 @@ curl -H "Authorization: Bearer supersecrettoken123" \
 Use this header:
 Authorization: Bearer supersecrettoken123
 
- How to Run Locally (for grading/debug)
+
+**How to Run Locally (for grading/debug)**
+
 1. Clone the repo
 
 2. Create virtual environment
