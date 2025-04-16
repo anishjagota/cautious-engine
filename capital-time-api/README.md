@@ -1,19 +1,19 @@
-# 🕒 Capital Time API
+#  Capital Time API
 
 This API returns the current local time and UTC offset for a given capital city. It also includes a protected route requiring a valid token to access secret data.
 
 ---
 
-## 🌐 Hosted Public Endpoint
+##  Hosted Public Endpoint
 
-**🔗 Base URL:**  
+** Base URL:**  
 http://35.193.33.177:5000
 
-> ⚠️ All endpoints require an `Authorization` header to access. Unauthorized requests will return a 401 error.
+>  All endpoints require an `Authorization` header to access. Unauthorized requests will return a 401 error.
 
 ---
 
-## 📌 Endpoints
+##  Endpoints
 
 ### `/api/time`
 
@@ -25,20 +25,20 @@ Returns the local time and UTC offset for a capital city.
 
 ---
 
-### ✅ Example Request
+### Example Request
 
 ```bash
 curl -H "Authorization: Bearer supersecrettoken123" \
 "http://35.193.33.177:5000/api/time?city=London"
 
-✅Example Response:
+Example Response:
 {
   "city": "London",
   "local_time": "2025-04-16 14:01:09",
   "utc_offset": "+01:00"
 }
 
-❌ If City Not Found:
+ If City Not Found:
 {
   "error": "SomeCity not found in database"
 }
@@ -51,18 +51,18 @@ Method: GET
 Headers Required:
 Authorization: Bearer supersecrettoken123
 
-🔐 Example Request
+ Example Request
 
 curl -H "Authorization: Bearer supersecrettoken123" \
 "http://35.193.33.177:5000/api/secure-data"
 
-✅ Example Response
+ Example Response
 
 {
   "secret": "This is protected info!"
 }
 
-❌ Missing Token Response
+ Missing Token Response
 
 {
   "error": "Unauthorized"
@@ -71,7 +71,7 @@ curl -H "Authorization: Bearer supersecrettoken123" \
 Use this header:
 Authorization: Bearer supersecrettoken123
 
-🧪 How to Run Locally (for grading/debug)
+ How to Run Locally (for grading/debug)
 1. Clone the repo
 
 2. Create virtual environment
