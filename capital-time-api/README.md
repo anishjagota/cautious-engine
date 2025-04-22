@@ -1,90 +1,82 @@
 #  Capital Time API
 
-This API returns the current local time and UTC offset for a given capital city. It also includes a protected route requiring a valid token to access secret data.
+This API returns the current local time and UTC offset for a given capital city.  
+It requires a valid token to access both the time and secret data routes.
 
 ---
 
-##  Hosted Public Endpoint
+# IP Address of Your Working API
 
-** Base URL:**  
-http://35.193.33.177:5000
+- **Public IP**: `http://35.193.33.177:5000`
+- **Endpoint Path**: `/api/time?city=London`
 
->  All endpoints require an `Authorization` header to access. Unauthorized requests will return a 401 error.
+
+
+
+
+###  To Get Time for a Capital City
+
+Use this endpoint format:
+
+
+
+```md
+http://ip-address:5000/api/time?city=CityName
+```
+
+For example on GCP:
+```md
+http://35.193.33.177:5000/api/time?city=London
+```
+
 
 ---
 
-##  Endpoints
+###  Authorization Required
 
-### `/api/time`
+Every request must include a valid token in the header:
 
-Returns the local time and UTC offset for a capital city.
+**Authorization:**
+```md
+ Bearer supersecrettoken123
+```
 
-- **Method:** `GET`
-- **Query Param:** `city` (case-sensitive)  
-  - Valid cities: `London`, `Paris`, `New York`, `Tokyo`, `Delhi`, `Canberra`
 
 ---
 
-### Example Request
+###  Example CURL Request
 
 ```bash
 curl -H "Authorization: Bearer supersecrettoken123" \
 "http://35.193.33.177:5000/api/time?city=London"
+```
 
-Example Response:
+✅ Expected JSON Response
+```bash
 {
   "city": "London",
   "local_time": "2025-04-16 14:01:09",
   "utc_offset": "+01:00"
 }
+```
 
- If City Not Found:
+❌ Invalid City Example
+```bash
 {
   "error": "SomeCity not found in database"
 }
-
-/api/secure-data
-Protected route that returns secret content.
-
-Method: GET
-
-Headers Required:
-Authorization: Bearer supersecrettoken123
-
- Example Request
-
-curl -H "Authorization: Bearer supersecrettoken123" \
-"http://35.193.33.177:5000/api/secure-data"
-
- Example Response
-
-{
-  "secret": "This is protected info!"
-}
-
- Missing Token Response
-
+```
+❌ Missing Token Example
+```bash
 {
   "error": "Unauthorized"
 }
-
-Use this header:
-Authorization: Bearer supersecrettoken123
+```
 
 
-**How to Run Locally (for grading/debug)**
 
-1. Clone the repo
 
-2. Create virtual environment
 
-python3 -m venv venv
-source venv/bin/activate
 
-3. Install dependencies
-pip install -r requirements.txt
-
-4. Run the app
-python3 app.py
 
 
